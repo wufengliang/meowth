@@ -1,5 +1,5 @@
 ### 此为注释 忽略文件
-.node_modules
+.node_modules/
 .pageage-lock.json
 .yarn-lock.json
 
