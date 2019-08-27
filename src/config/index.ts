@@ -1,3 +1,4 @@
 import config from './config';
+import mongose from './mongose';
 
-export default config;
+export { config, mongose };
