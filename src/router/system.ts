@@ -16,7 +16,7 @@ router
     //  添加系统 
     .post('/add', controller.addSystem)
     //  删除系统
-    .post('/delete', controller.deleteStstem)
+    .post('/delete', controller.deleteSystem)
     //  编辑系统
     .post('/edit', controller.editSystem)
 

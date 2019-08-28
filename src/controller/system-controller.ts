@@ -18,8 +18,9 @@ export default class SystemController {
     };
 
     async addSystem(ctx: { [key: string]: any }) {
-        const { name } = ctx.request.body;
-        const data = await system.create({ name });
+        //  后期接入登录 creator取当前登录账号
+        const { name, systemCode, systemType, creator = 'admin' } = ctx.request.body;
+        const data = await system.create({ name, systemCode, systemType, creator });
         ctx.body = {
             code: 200,
             data,
@@ -27,7 +28,7 @@ export default class SystemController {
         }
     };
 
-    async deleteStstem(ctx: { [key: string]: any }) {
+    async deleteSystem(ctx: { [key: string]: any }) {
         const ids = ctx.request.body.ids;
         const data = await system.deleteMany({ _id: { $in: ids } });
 
@@ -45,13 +46,16 @@ export default class SystemController {
     };
 
     async editSystem(ctx: { [key: string]: any }) {
-        const { id, name } = ctx.request.body;
+        const { id, systemCode, systemType } = ctx.request.body;
+        if (!systemCode && !systemType) {
+            ctx.throw(404, '参数错误');
+        }
         const data = await system.find({ _id: id });
 
         if (!data) {
             ctx.throw(404, 'id不存在');
         }
-        const result = await system.updateOne({ _id: id }, { name, updateTime: new Date() })
+        const result = await system.updateOne({ _id: id }, { systemCode, systemType, updateTime: new Date(), modifier: 'admin' })
         if (!result) {
             ctx.throw(403, '更新异常')
         }
