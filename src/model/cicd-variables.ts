@@ -4,9 +4,9 @@
  * @Description:   ci/cd schema 
  * @Last Modified time: 2019-08-27 11:07:09 
  */
-import { mongose } from '../config';
+import { mongoose } from '../config';
 
-const { Schema, model } = mongose;
+const { Schema, model } = mongoose;
 
 const cicdShema = new Schema({
     code: {
@@ -40,6 +40,6 @@ const cicdShema = new Schema({
     }
 });
 
-const cicdVariable = model('cicdVariable', cicdShema);
+const CiCdVariableModel = model('cicdVariable', cicdShema);
 
-export { cicdVariable };
+export { CiCdVariableModel };

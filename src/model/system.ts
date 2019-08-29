@@ -1,6 +1,6 @@
-import { mongose } from '../config';
+import { mongoose } from '../config';
 
-const { model, Schema } = mongose;
+const { model, Schema } = mongoose;
 
 const systemShema = new Schema({
     name: {
@@ -44,6 +44,6 @@ const systemShema = new Schema({
     }
 });
 
-const system = model('system', systemShema);
+const SystemModel = model('system', systemShema);
 
-export { system };
+export { SystemModel };

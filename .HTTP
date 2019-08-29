@@ -64,3 +64,42 @@ Content-Type: application/json
     "environment":"test01",
     "port":"1111"
 }
+
+### 查询系统开发维护列表
+GET http://localhost:8888/system-develop/all
+Content-Type: application/json
+
+### 添加系统开发维护人员
+POST http://localhost:8888/system-develop/add
+Content-Type: application/json
+
+{
+    "leader":"张三",
+    "frontEnd":"李四",
+    "backEnd":"王五",
+    "testEngineer":["阮小七"],
+    "productManager":["二狗子"],
+    "system":"5d65f327a23f0d5b5c47f916"
+}
+
+### 删除系统开发维护人员
+POST http://localhost:8888/system-develop/delete
+Content-Type: application/json
+
+{
+    "ids":["5d677943a5232461dce7fb88","5d6779e7c4c9391b60b1baa4","5d677a0cc4c9391b60b1baa5"]
+}
+
+### 编辑系统开发维护人员
+POST http://localhost:8888/system-develop/edit
+Content-Type: application/json
+
+{
+    "id":"5d677943a5232461dce7fb88",
+    "leader":"张三1",
+    "frontEnd":"李四2",
+    "backEnd":"王五3",
+    "testEngineer":["阮小七4"],
+    "productManager":["二狗子5"],
+    "system":"5d65f327a23f0d5b5c47f916"
+}

@@ -4,12 +4,12 @@
  * @Description:   系统模块
  * @Last Modified time: 2019-08-27 16:24:01
  */
-import { system } from '../model/system';
+import { SystemModel } from '../model/system';
 
 export default class SystemController {
 
     async getAll(ctx: { [key: string]: any }) {
-        const data = await system.find();
+        const data = await SystemModel.find();
         ctx.body = {
             code: 200,
             data,
@@ -20,7 +20,7 @@ export default class SystemController {
     async addSystem(ctx: { [key: string]: any }) {
         //  后期接入登录 creator取当前登录账号
         const { name, systemCode, systemType, creator = 'admin' } = ctx.request.body;
-        const data = await system.create({ name, systemCode, systemType, creator });
+        const data = await SystemModel.create({ name, systemCode, systemType, creator });
         ctx.body = {
             code: 200,
             data,
@@ -29,19 +29,16 @@ export default class SystemController {
     };
 
     async deleteSystem(ctx: { [key: string]: any }) {
-        const ids = ctx.request.body.ids;
-        const data = await system.deleteMany({ _id: { $in: ids } });
+        const ids = ctx.request.body.ids,
+            data = await SystemModel.find({ _id: { $in: ids } });
 
-        if (data) {
-            ctx.body = {
-                code: 200,
-                message: '删除成功'
-            }
-        } else {
-            ctx.body = {
-                code: 201,
-                message: '异常错误'
-            }
+        if (data.length === 0) {
+            ctx.throw(404, '当前系统不存在');
+        }
+        const result = await SystemModel.deleteMany({ _id: { $in: ids } });
+        ctx.body = {
+            code: 200,
+            message: '删除成功'
         }
     };
 
@@ -50,12 +47,12 @@ export default class SystemController {
         if (!systemCode && !systemType) {
             ctx.throw(404, '参数错误');
         }
-        const data = await system.find({ _id: id });
+        const data = await SystemModel.find({ _id: id });
 
         if (!data) {
             ctx.throw(404, 'id不存在');
         }
-        const result = await system.updateOne({ _id: id }, { systemCode, systemType, updateTime: new Date(), modifier: 'admin' })
+        const result = await SystemModel.updateOne({ _id: id }, { systemCode, systemType, updateTime: new Date(), modifier: 'admin' })
         if (!result) {
             ctx.throw(403, '更新异常')
         }
