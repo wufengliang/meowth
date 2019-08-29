@@ -4,11 +4,11 @@
  * @Description:   ci/cd 逻辑处理
  * @Last Modified time: 2019-08-27 15:20:30
  */
-import { cicdVariable } from '../model/cicd-variables';
+import { CiCdVariableModel } from '../model/cicd-variables';
 
 export default class CiCdVariableController {
     async getAll(ctx: { [key: string]: any }) {
-        const data = await cicdVariable.find().populate('code');
+        const data = await CiCdVariableModel.find().populate('code');
         ctx.body = {
             code: 200,
             data,
@@ -18,7 +18,7 @@ export default class CiCdVariableController {
 
     async addCicd(ctx: { [key: string]: any }) {
         const { code, type, environment, port, ip, path } = ctx.request.body,
-            data = await cicdVariable.create({ code, type, environment, port, ip, path });
+            data = await CiCdVariableModel.create({ code, type, environment, port, ip, path });
         ctx.body = {
             code: 200,
             data,
@@ -28,7 +28,7 @@ export default class CiCdVariableController {
 
     async deleteCicd(ctx: { [key: string]: any }) {
         const { ids } = ctx.request.body,
-            data = await cicdVariable.deleteMany({ _id: { $in: ids } });
+            data = await CiCdVariableModel.deleteMany({ _id: { $in: ids } });
         ctx.body = {
             code: 200,
             message: '删除成功'
@@ -38,14 +38,14 @@ export default class CiCdVariableController {
 
     async editCicd(ctx: { [key: string]: any }) {
         const { id, environment, port, ip, path } = ctx.request.body,
-            data = await cicdVariable.find({ _id: id });
+            data = await CiCdVariableModel.find({ _id: id });
         if (data.length === 0) {
             ctx.body = {
                 code: 201,
                 message: '当前参数异常'
             }
         } else {
-            const result = await cicdVariable.updateOne({ _id: id }, { environment, port, ip, path });
+            const result = await CiCdVariableModel.updateOne({ _id: id }, { environment, port, ip, path });
             ctx.body = {
                 code: 200,
                 message: '更新成功'
