@@ -16,3 +16,8 @@
 ## License
 
 
+### 技术栈
+
+- nodejs + koa2 + typescript + mongoodb
+
+

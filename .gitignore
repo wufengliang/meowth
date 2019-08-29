@@ -1,0 +1,6 @@
+### 此为注释 忽略文件
+/node_modules
+.package-lock.json
+.yarn-lock.json
+
+/dist

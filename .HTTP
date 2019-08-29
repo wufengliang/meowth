@@ -1,0 +1,66 @@
+### 获取所有系统
+GET http://localhost:8888/system/all
+Content-Type: application/json
+
+### 添加系统
+POST http://localhost:8888/system/add
+Content-Type: application/json
+
+{
+    "name":"IPS系统",
+    "systemCode":"ips-web"
+}
+
+### 删除系统
+POST http://localhost:8888/system/delete
+Content-Type: application/json
+
+{
+    "ids":["5d65ef53f4844b59f41a117b"]
+}
+
+### 编辑系统
+POST http://localhost:8888/system/edit
+Content-Type: application/json
+
+{
+    "id":"5d65f327a23f0d5b5c47f916",
+    "systemCode":"scm-web111",
+    "systemType":"APP"
+}
+
+### 获取所有CICD路由
+GET http://localhost:8888/cicd/all
+Content-Type: application/json
+
+### 添加CICD路由
+
+POST http://localhost:8888/cicd/add
+Content-Type: application/json
+
+{
+    "code":"5d65f327a23f0d5b5c47f916",
+    "environment":"test",
+    "port":"1111",
+    "ip":"127.0.0.1",
+    "path":"/www/website"
+}
+
+
+### 删除CICD路由
+POST http://localhost:8888/cicd/delete
+Content-Type: application/json
+
+{
+    "ids":["5d662ee71daa2871acdc3b3e"]
+}
+
+### 编辑CICD路由
+POST http://localhost:8888/cicd/edit
+Content-Type: application/json
+
+{
+    "id":"5d66346ce8cc786ce8f50699",
+    "environment":"test01",
+    "port":"1111"
+}
