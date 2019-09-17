@@ -23,6 +23,8 @@ const systemDevelopSchema = new Schema({
         unique: true,
         ref: 'system',
     }
+},{
+    versionKey:false,
 });
 
 const SystemDevelopModel = model('systemDevelop', systemDevelopSchema);

@@ -23,21 +23,20 @@ const cicdShema = new Schema({
         //  端口
         type: String,
         required: true,
-        select: false,
     },
     ip: {
         //  ip地址
         type: String,
         required: true,
         match: /((1\d{2}|25[0-5]|2[0-4]\d|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)/,
-        select: false,
     },
     path: {
         //  服务器部署路径
         type: String,
         required: true,
-        select: false,
     }
+},{
+    versionKey:false,
 });
 
 const CiCdVariableModel = model('cicdVariable', cicdShema);

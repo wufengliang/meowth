@@ -1,4 +1,7 @@
 import config from './config';
 import mongoose from './mongose';
+import session from './session';
 
-export { config, mongoose };
+const secret = 'secret';
+
+export { config, mongoose, session, secret };

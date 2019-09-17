@@ -1,9 +1,9 @@
 ### 获取所有系统
-GET http://localhost:8888/system/all
+GET http://localhost:8888/api/system/all
 Content-Type: application/json
 
 ### 添加系统
-POST http://localhost:8888/system/add
+POST http://localhost:8888/api/system/add
 Content-Type: application/json
 
 {
@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 
 ### 删除系统
-POST http://localhost:8888/system/delete
+POST http://localhost:8888/api/system/delete
 Content-Type: application/json
 
 {
@@ -20,7 +20,7 @@ Content-Type: application/json
 }
 
 ### 编辑系统
-POST http://localhost:8888/system/edit
+POST http://localhost:8888/api/system/edit
 Content-Type: application/json
 
 {
@@ -30,12 +30,12 @@ Content-Type: application/json
 }
 
 ### 获取所有CICD路由
-GET http://localhost:8888/cicd/all
+GET http://localhost:8888/api/cicd/all
 Content-Type: application/json
 
 ### 添加CICD路由
 
-POST http://localhost:8888/cicd/add
+POST http://localhost:8888/api/cicd/add
 Content-Type: application/json
 
 {
@@ -48,7 +48,7 @@ Content-Type: application/json
 
 
 ### 删除CICD路由
-POST http://localhost:8888/cicd/delete
+POST http://localhost:8888/api/cicd/delete
 Content-Type: application/json
 
 {
@@ -56,7 +56,7 @@ Content-Type: application/json
 }
 
 ### 编辑CICD路由
-POST http://localhost:8888/cicd/edit
+POST http://localhost:8888/api/cicd/edit
 Content-Type: application/json
 
 {
@@ -66,11 +66,11 @@ Content-Type: application/json
 }
 
 ### 查询系统开发维护列表
-GET http://localhost:8888/system-develop/all
+GET http://localhost:8888/api/system-develop/all
 Content-Type: application/json
 
 ### 添加系统开发维护人员
-POST http://localhost:8888/system-develop/add
+POST http://localhost:8888/api/system-develop/add
 Content-Type: application/json
 
 {
@@ -83,7 +83,7 @@ Content-Type: application/json
 }
 
 ### 删除系统开发维护人员
-POST http://localhost:8888/system-develop/delete
+POST http://localhost:8888/api/system-develop/delete
 Content-Type: application/json
 
 {
@@ -91,7 +91,7 @@ Content-Type: application/json
 }
 
 ### 编辑系统开发维护人员
-POST http://localhost:8888/system-develop/edit
+POST http://localhost:8888/api/system-develop/edit
 Content-Type: application/json
 
 {
@@ -103,3 +103,31 @@ Content-Type: application/json
     "productManager":["二狗子5"],
     "system":"5d65f327a23f0d5b5c47f916"
 }
+
+### 注册账号
+POST http://localhost:8888/api/user/register
+Content-Type: application/json
+
+{
+    "name":"吴风亮",
+    "username":"wufengliang",
+    "password":"123456",
+    "role":"前端",
+    "telPhone":"18520780223",
+    "contactQQ":"44823912",
+    "isOpen":true
+}
+
+### 登录账号
+POST http://localhost:8888/api/user/login
+Content-Type: application/json
+
+{
+    "username":"wufengliang",
+    "password":"123456"
+}
+
+### 获取登录账号信息
+POST http://localhost:8888/api/user/person
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY4Mjc4NzcxLCJleHAiOjE1NjgyODU5NzF9.k8KjAWWHakJkxvda0hB1PTo2fmRzNeBx0AoOSyHyUAA
