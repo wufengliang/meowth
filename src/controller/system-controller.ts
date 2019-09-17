@@ -5,6 +5,7 @@
  * @Last Modified time: 2019-08-27 16:24:01
  */
 import { SystemModel } from '../model/system';
+import { UserModel } from '../model/user';
 
 export default class SystemController {
 
@@ -19,12 +20,14 @@ export default class SystemController {
 
     async addSystem(ctx: { [key: string]: any }) {
         //  后期接入登录 creator取当前登录账号
-        const { name, systemCode, systemType, creator = 'admin' } = ctx.request.body;
+        const username = ctx.session.username;  //  获取当前登录账号
+        const user = await UserModel.findOne({ username }).lean().exec();
+        const { name, systemCode, systemType } = ctx.request.body;
         const result = await SystemModel.find({ name, systemCode });
         if (result.length > 0) {
             ctx.throw(403, '当前系统已存在');
         }
-        const data = await SystemModel.create({ name, systemCode, systemType, creator });
+        const data = await SystemModel.create({ name, systemCode, systemType, creator: user.name });
         ctx.body = {
             code: 200,
             data,

@@ -60,6 +60,7 @@ export default class UserController {
         })
     }
 
+    //  登录
     async login(ctx: { [key: string]: any }) {
         const { username, password } = ctx.request.body;
         let result = await UserModel.findOne({ username }).lean().exec();
@@ -85,6 +86,7 @@ export default class UserController {
         }
     }
 
+    //  注册
     async register(ctx: { [key: string]: any }) {
         const { name, username, password, role, telPhone, contactQQ, isOpen } = ctx.request.body;
         const result = await UserModel.create({ name, username, password: SettingPassword.setPassword(password), role, telPhone, contactQQ, isOpen });
@@ -98,9 +100,11 @@ export default class UserController {
         }
     }
 
+    //  获取登录信息
     async getPerson(ctx: { [key: string]: any }) {
-        const username = ctx.session.username,
-            data = await UserModel.findOne({ username });
+        const username = ctx.session.username;
+        const data = await UserModel.findOne({ username }).lean();
+
         if (data) {
             ctx.body = {
                 code: 200,
@@ -112,6 +116,28 @@ export default class UserController {
                 code: 404,
                 message: '当前用户不存在'
             }
+        }
+    }
+
+    //  获取分组用户信息
+    async getTypeUser(ctx: { [key: string]: any }) {
+        const { type } = ctx.request.body;
+        const data = await UserModel.find({ [type]: type })
+        ctx.body = {
+            code: 200,
+            message: '查询成功',
+            data
+        }
+    }
+
+    //  获取某个用户信息
+    async getUserInfo(ctx: { [key: string]: any }) {
+        const { userId } = ctx.params;
+        const data = await UserModel.findOne({ _id: userId }).lean();
+        ctx.body = {
+            code: 200,
+            message: '查询成功',
+            data
         }
     }
 }

@@ -27,13 +27,13 @@ const systemShema = new Schema({
         //  创建时间
         type: Date,
         default: Date.now,
-        get: (v: string | Date) => moment(v).format('YYYY-MM-DD HH:mm')
+        get: (v: string | Date) => moment(v).format('YYYY-MM-DD HH:mm:ss')
     },
     updateTime: {
         //  更新时间
         type: Date,
         default: null,
-        get: (v: string | Date) => moment(v).format('YYYY-MM-DD HH:mm')
+        get: (v: string | Date) => moment(v).format('YYYY-MM-DD HH:mm:ss')
     },
     creator: {
         //  创建人

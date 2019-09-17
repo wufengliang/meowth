@@ -130,4 +130,10 @@ Content-Type: application/json
 ### 获取登录账号信息
 POST http://localhost:8888/api/user/person
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY4Mjc4NzcxLCJleHAiOjE1NjgyODU5NzF9.k8KjAWWHakJkxvda0hB1PTo2fmRzNeBx0AoOSyHyUAA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY4NzA2MDI4LCJleHAiOjE1Njg3MTMyMjh9.qczEWrEEutTS0wMht4li4Bhap8TIRU0EQ6Xix9uxv2c
+
+
+### 获取某个账号信息
+POST http://localhost:8888/api/user/single/5d78c9c327d1e53644a70793
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY4NzA4Mjg4LCJleHAiOjE1Njg3MTU0ODh9.IMAF9czmpGYeemw52glH6aRxy0QFYLwWBvDlaOwszbQ

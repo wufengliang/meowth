@@ -10,7 +10,7 @@ import { secret } from '../config';
 export default function () {
     return async function (ctx: { [key: string]: any }, next: Function) {
         const token = ctx.header.authorization;
-        if (token && token.split(' ')[1] !== 'null') {
+        if (token) {
             const data = await jsonwebtoken.verify(token.split(' ')[1], secret);
             ctx.session.username = (data as any).username;
         }

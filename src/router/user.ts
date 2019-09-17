@@ -23,5 +23,7 @@ router
     //  注册
     .post('/register', controller.register)
     //  获取用户信息
-    .post('/person',controller.getPerson)
+    .post('/person', controller.getPerson)
+    //  获取某个用户信息
+    .post('/single/:userId',controller.getUserInfo)
 export default router;
