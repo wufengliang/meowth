@@ -34,9 +34,19 @@ const cicdShema = new Schema({
         //  服务器部署路径
         type: String,
         required: true,
+    },
+    creator: {
+        //  创建人
+        type: Schema.Types.ObjectId,
+        ref: 'user'
+    },
+    modifier: {
+        //  更新人
+        type: Schema.Types.ObjectId,
+        ref: 'user'
     }
-},{
-    versionKey:false,
+}, {
+    versionKey: false,
 });
 
 const CiCdVariableModel = model('cicdVariable', cicdShema);

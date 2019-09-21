@@ -8,14 +8,11 @@ const systemShema = new Schema({
         //  系统名称
         type: String,
         required: true,
-        trim: true,
     },
     systemCode: {
         //  eg:scm->smc-web/scm-app
         type: String,
         required: true,
-        trim: true,
-        unique: true,
     },
     systemType: {
         //  系统类型 （web/app/nodejs/小程序)
@@ -44,15 +41,23 @@ const systemShema = new Schema({
         //  修改人
         type: String,
         default: null,
+    },
+    developer: {
+        //  开发人员
+        type: [{ type: Schema.Types.ObjectId, ref: 'user' }]
+    },
+    leader: {
+        //  负责人 (前端、后端)
+        type: [{ type: Schema.Types.ObjectId, ref: 'user' }]
     }
 }, {
     versionKey: false,
     timestamps: { createdAt: 'createTime', updatedAt: 'updateTime' },
+    toJSON: { getters: true, virtuals: true },
+    id: false,
 });
 
 systemShema.virtual('systemName').get(function () { return `${(this as any).name}/${(this as any).systemCode}` });
-
-systemShema.set('toJSON', { getters: true });
 
 const SystemModel = model('system', systemShema);
 

@@ -10,8 +10,9 @@ import * as jsonwebtoken from 'jsonwebtoken';
 import { secret } from '../config';
 
 export default class UserController {
+    //  获取所有用户列表
     async getAll(ctx: { [key: string]: any }) {
-        const data = await UserModel.find({});
+        const data = await UserModel.find().select('-password');
         ctx.body = {
             code: 200,
             data,
@@ -19,6 +20,7 @@ export default class UserController {
         }
     }
 
+    //  添加用户
     async addUser(ctx: { [key: string]: any }) {
         const { name, username, password, role, telPhone, contactQQ } = ctx.request.body,
             result = await UserModel.create({ name, username, password, role, telPhone, contactQQ });
@@ -31,6 +33,7 @@ export default class UserController {
         }
     }
 
+    //  编辑用户
     async editUser(ctx: { [key: string]: any }) {
         const { id, name, username, telPhone, contactQQ } = ctx.request.body,
             result = await UserModel.findById(id);
@@ -44,6 +47,7 @@ export default class UserController {
         }
     }
 
+    //  删除用户
     async deleteUser(ctx: { [key: string]: any }) {
         const { id } = ctx.request.body;
         await UserModel.findById(id, async (err) => {
@@ -76,10 +80,7 @@ export default class UserController {
                     token,
                 }
             } else {
-                ctx.body = {
-                    code: 201,
-                    message: '密码错误'
-                }
+                ctx.throw(401, '密码错误');
             }
         } else {
             ctx.throw(404, '用户不存在');
@@ -88,8 +89,8 @@ export default class UserController {
 
     //  注册
     async register(ctx: { [key: string]: any }) {
-        const { name, username, password, role, telPhone, contactQQ, isOpen } = ctx.request.body;
-        const result = await UserModel.create({ name, username, password: SettingPassword.setPassword(password), role, telPhone, contactQQ, isOpen });
+        const { name, username, password, role, mobile, contactQQ } = ctx.request.body;
+        const result = await UserModel.create({ name, username, password: SettingPassword.setPassword(password), role, mobile, contactQQ, status: "ACITIVED" });
         if (result) {
             ctx.body = {
                 code: 200,
@@ -119,10 +120,10 @@ export default class UserController {
         }
     }
 
-    //  获取分组用户信息
-    async getTypeUser(ctx: { [key: string]: any }) {
-        const { type } = ctx.request.body;
-        const data = await UserModel.find({ role: type })
+    //  获取某个用户信息
+    async getUserInfo(ctx: { [key: string]: any }) {
+        const { username } = ctx.params;
+        const data = await UserModel.findOne({ username }).select('-password').lean();
         ctx.body = {
             code: 200,
             message: '查询成功',
@@ -130,14 +131,4 @@ export default class UserController {
         }
     }
 
-    //  获取某个用户信息
-    async getUserInfo(ctx: { [key: string]: any }) {
-        const { userId } = ctx.params;
-        const data = await UserModel.findOne({ _id: userId }).lean();
-        ctx.body = {
-            code: 200,
-            message: '查询成功',
-            data
-        }
-    }
 }

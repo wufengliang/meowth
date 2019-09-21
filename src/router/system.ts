@@ -19,7 +19,5 @@ router
     .post('/delete', controller.deleteSystem)
     //  编辑系统
     .post('/edit', controller.editSystem)
-    //  获取所有系统名称
-    .get('/allTypes',controller.allTypes)
 
 export default router;

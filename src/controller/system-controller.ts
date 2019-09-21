@@ -10,7 +10,9 @@ import { UserModel } from '../model/user';
 export default class SystemController {
 
     async getAll(ctx: { [key: string]: any }) {
-        const data = (await SystemModel.find());
+        const data = await SystemModel.find()
+            .populate({ path: 'developer', select: 'name username mobile contactQQ role' })
+            .exec();
         ctx.body = {
             code: 200,
             data,
@@ -22,12 +24,12 @@ export default class SystemController {
         //  后期接入登录 creator取当前登录账号
         const username = ctx.session.username;  //  获取当前登录账号
         const user = await UserModel.findOne({ username }).lean().exec();
-        const { name, systemCode, systemType } = ctx.request.body;
+        const { name, systemCode, systemType, developer } = ctx.request.body;
         const result = await SystemModel.find({ name, systemCode });
         if (result.length > 0) {
             ctx.throw(403, '当前系统已存在');
         }
-        const data = await SystemModel.create({ name, systemCode, systemType, creator: user.name });
+        const data = await SystemModel.create({ name, systemCode, systemType, creator: user.name, developer });
         ctx.body = {
             code: 200,
             data,
@@ -66,16 +68,6 @@ export default class SystemController {
         ctx.body = {
             code: 200,
             message: "更新成功"
-        }
-    }
-
-    async allTypes(ctx: { [key: string]: any }) {
-
-        const data = await SystemModel.find({}).distinct('name').exec();
-        ctx.body = {
-            code: 200,
-            data,
-            message: '查询所有系统类型成功'
         }
     }
 }
