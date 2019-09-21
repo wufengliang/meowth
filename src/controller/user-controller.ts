@@ -103,7 +103,7 @@ export default class UserController {
     //  获取登录信息
     async getPerson(ctx: { [key: string]: any }) {
         const username = ctx.session.username;
-        const data = await UserModel.findOne({ username }).lean();
+        const data = await UserModel.findOne({ username }).select('-password').lean();
 
         if (data) {
             ctx.body = {
@@ -122,7 +122,7 @@ export default class UserController {
     //  获取分组用户信息
     async getTypeUser(ctx: { [key: string]: any }) {
         const { type } = ctx.request.body;
-        const data = await UserModel.find({ [type]: type })
+        const data = await UserModel.find({ role: type })
         ctx.body = {
             code: 200,
             message: '查询成功',

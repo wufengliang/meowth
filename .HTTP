@@ -113,8 +113,8 @@ Content-Type: application/json
     "username":"wufengliang",
     "password":"123456",
     "role":"前端",
-    "telPhone":"18520780223",
-    "contactQQ":"44823912",
+    "telPhone":"13535353535",
+    "contactQQ":"10086",
     "isOpen":true
 }
 
@@ -137,3 +137,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1Z
 POST http://localhost:8888/api/user/single/5d78c9c327d1e53644a70793
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY4NzA4Mjg4LCJleHAiOjE1Njg3MTU0ODh9.IMAF9czmpGYeemw52glH6aRxy0QFYLwWBvDlaOwszbQ
+
+
+### 获取分组信息
+POST http://localhost:8888/api/user/getTypeUser
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY4OTc0NTcyLCJleHAiOjE1Njg5ODE3NzJ9.MRZ0MpreZ3FtH0ZP-xMDRVQQBzCZnYsXgLIjt2OnZfY
+
+{
+    "role":"frontEnd"
+}

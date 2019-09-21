@@ -25,5 +25,7 @@ router
     //  获取用户信息
     .post('/person', controller.getPerson)
     //  获取某个用户信息
-    .post('/single/:userId',controller.getUserInfo)
+    .post('/single/:userId', controller.getUserInfo)
+    //  获取用户分组
+    .post('/getTypeUser', controller.getTypeUser)
 export default router;

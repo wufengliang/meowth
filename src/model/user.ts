@@ -30,7 +30,6 @@ const userSchema = new Schema({
         type: String,
         trim: true,
         required: true,
-        select: false,
         get: (value: string) => SettingPassword.setPassword(value)
     },
     role: {
