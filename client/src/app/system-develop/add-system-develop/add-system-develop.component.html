@@ -1,0 +1,61 @@
+<form nz-form [formGroup]="validateForm">
+  <nz-form-item>
+    <nz-form-label nzSpan="4" nzRequired>姓名</nz-form-label>
+    <nz-form-control nzSpan="20" nzErrorTip="请输入姓名">
+      <input nz-input formControlName="name" placeholder="请输入姓名" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="4" nzRequired>登录账号</nz-form-label>
+    <nz-form-control nzSpan="20" nzErrorTip="请输入登录账号">
+      <input nz-input formControlName="username" placeholder="请输入登录账号" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="4" nzRequired>角色</nz-form-label>
+    <nz-form-control nzSpan="20" nzErrorTip="请选择角色">
+      <nz-select formControlName="role" nzPlaceHolder="请选择角色" nzAllowClear>
+        <nz-option [nzLabel]="'前端'" [nzValue]="'frontEnd'"> </nz-option>
+        <nz-option [nzLabel]="'后端'" [nzValue]="'backEnd'"> </nz-option>
+        <nz-option [nzLabel]="'测试'" [nzValue]="'testEngineer'"> </nz-option>
+        <nz-option [nzLabel]="'产品'" [nzValue]="'productManager'"> </nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="4" nzRequired>手机号码</nz-form-label>
+    <nz-form-control nzSpan="20" nzErrorTip="请输入手机号码">
+      <input
+        nz-input
+        formControlName="mobile"
+        placeholder="请输入手机号码"
+        maxlength="11"
+      />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="4" nzRequired>QQ号</nz-form-label>
+    <nz-form-control nzSpan="20" nzErrorTip="请输入QQ号">
+      <input nz-input formControlName="contactQQ" placeholder="请输入QQ号" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="4" nzRequired>邮箱</nz-form-label>
+    <nz-form-control nzSpan="20" nzErrorTip="请输入邮箱">
+      <input nz-input formControlName="email" placeholder="请输入邮箱" />
+    </nz-form-control>
+  </nz-form-item>
+</form>
+
+<div class="modal-footer">
+  <button
+    nz-button
+    nzType="primary"
+    class="margin-right-10"
+    [nzLoading]="loading"
+    (click)="isOk()"
+  >
+    确定
+  </button>
+  <button nz-button nzType="default" (click)="cancel()">取消</button>
+</div>

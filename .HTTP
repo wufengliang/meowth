@@ -1,32 +1,35 @@
 ### 获取所有系统
 GET http://localhost:8888/api/system/all
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MDU4NDAyLCJleHAiOjE1NjkwNjU2MDJ9.Dn_Co7C3ASaQcVEO2pum_mnTpcRGy6f-J5_9KJ2dBjY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
 
 ### 添加系统
 POST http://localhost:8888/api/system/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MDU4NDAyLCJleHAiOjE1NjkwNjU2MDJ9.Dn_Co7C3ASaQcVEO2pum_mnTpcRGy6f-J5_9KJ2dBjY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
 
 {
-    "name":"IPS系统",
-    "systemCode":"ips-web",
-    "developer":["5d85d142afb58322cc813334"]
+    "name":"SCM系统",
+    "systemCode":"scm-web",
+    "developer":[{"_id":"5d85d142afb58322cc813334"},{"_id":"5d85d6ab81fbba3a44baf45d"}],
+    "leader":[
+        {"_id":"5d85d142afb58322cc813334"}
+    ]
 }
 
 ### 删除系统
 POST http://localhost:8888/api/system/delete
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MDU4NDAyLCJleHAiOjE1NjkwNjU2MDJ9.Dn_Co7C3ASaQcVEO2pum_mnTpcRGy6f-J5_9KJ2dBjY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
 
 {
-    "ids":["5d776b165d820f41b8a75fd6"]
+    "ids":["5d89bb8b64ca5c1468f2ded5"]
 }
 
 ### 编辑系统
 POST http://localhost:8888/api/system/edit
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MDU4NDAyLCJleHAiOjE1NjkwNjU2MDJ9.Dn_Co7C3ASaQcVEO2pum_mnTpcRGy6f-J5_9KJ2dBjY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
 
 {
     "id":"5d65f327a23f0d5b5c47f916",
@@ -95,12 +98,12 @@ Content-Type: application/json
 ### 获取用户列表
 GET http://localhost:8888/api/user/all
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MDU4NDAyLCJleHAiOjE1NjkwNjU2MDJ9.Dn_Co7C3ASaQcVEO2pum_mnTpcRGy6f-J5_9KJ2dBjY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
 
 ### 添加用户列表
 POST http://localhost:8888/api/user/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MDU4NDAyLCJleHAiOjE1NjkwNjU2MDJ9.Dn_Co7C3ASaQcVEO2pum_mnTpcRGy6f-J5_9KJ2dBjY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
 
 {
     "name":"张三",
@@ -112,13 +115,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1Z
 }
 
 ### 获取登录账号信息
-POST http://localhost:8888/api/user/person
+POST http://localhost:8888/api/user/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MDU4NDAyLCJleHAiOjE1NjkwNjU2MDJ9.Dn_Co7C3ASaQcVEO2pum_mnTpcRGy6f-J5_9KJ2dBjY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
 
 
 ### 获取某个账号信息
 POST http://localhost:8888/api/user/single/wufengliang
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MDU4NDAyLCJleHAiOjE1NjkwNjU2MDJ9.Dn_Co7C3ASaQcVEO2pum_mnTpcRGy6f-J5_9KJ2dBjY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
 

@@ -1,0 +1,62 @@
+<form nz-form [formGroup]="validateForm">
+  <nz-form-item>
+    <nz-form-label nzRequired [nzSpan]="6">姓名</nz-form-label>
+    <nz-form-control [nzSpan]="14" nzErrorTip="请输入姓名">
+      <input nz-input formControlName="name" placeholder="请输入姓名" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired [nzSpan]="6">账号</nz-form-label>
+    <nz-form-control [nzSpan]="14" nzErrorTip="请输入账号">
+      <input nz-input formControlName="username" placeholder="请输入账号" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired [nzSpan]="6">密码</nz-form-label>
+    <nz-form-control [nzSpan]="14" nzErrorTip="请输入密码">
+      <input
+        type="password"
+        nz-input
+        formControlName="password"
+        placeholder="请输入账号"
+      />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired [nzSpan]="6">角色</nz-form-label>
+    <nz-form-control [nzSpan]="14" nzErrorTip="请选择角色">
+      <nz-select formControlName="role" nzPlaceHolder="请选择角色" nzAllowClear>
+        <nz-option nzLabel="前端" nzValue="frontEnd"></nz-option>
+        <nz-option nzLabel="后端" nzValue="backEnd"></nz-option>
+        <nz-option nzLabel="测试" nzValue="testEngineer"></nz-option>
+        <nz-option nzLabel="产品" nzValue="productManager"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired [nzSpan]="6">手机号码</nz-form-label>
+    <nz-form-control [nzSpan]="14" nzErrorTip="请输入手机号码">
+      <input nz-input formControlName="telPhone" placeholder="请输入手机号码" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired [nzSpan]="6">QQ号</nz-form-label>
+    <nz-form-control [nzSpan]="14" nzErrorTip="请输入QQ号">
+      <input nz-input formControlName="contactQQ" placeholder="请输入QQ号" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzSpan]="18">
+      <div nz-row nzType="flex" nzJustify="center">
+        <label nz-checkbox formControlName="isLeader">
+          <span>是否是经理</span>
+        </label>
+      </div>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item nz-row class="register-area">
+    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+      <button nz-button nzType="primary" (click)="submitForm()">注册</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

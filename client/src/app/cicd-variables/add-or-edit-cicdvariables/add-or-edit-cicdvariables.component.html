@@ -1,0 +1,43 @@
+<form nz-form [formGroup]="validateForm">
+  <nz-form-item>
+    <nz-form-label nzSpan="6" nzRequired>系统环境</nz-form-label>
+    <nz-form-control nzSpan="18" nzErrorTip="请输入系统环境名称">
+      <input nz-input formControlName="environment" placeholder="请输入系统环境名称" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="6" nzRequired>端口</nz-form-label>
+    <nz-form-control nzSpan="18" nzErrorTip="请输入端口">
+      <input nz-input formControlName="port" placeholder="请输入端口" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="6" nzRequired>ip地址</nz-form-label>
+    <nz-form-control nzSpan="18" nzErrorTip="请输入ip地址">
+      <input nz-input formControlName="ip" placeholder="请输入ip地址" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="6" nzRequired>服务器部署路径</nz-form-label>
+    <nz-form-control nzSpan="18" nzErrorTip="请输入服务器部署路径">
+      <input
+        nz-input
+        formControlName="path"
+        placeholder="请输入服务器部署路径"
+      />
+    </nz-form-control>
+  </nz-form-item>
+</form>
+
+<div class="modal-footer">
+  <button
+    nz-button
+    nzType="primary"
+    class="margin-right-10"
+    [nzLoading]="loading"
+    (click)="isOk()"
+  >
+    确定
+  </button>
+  <button nz-button nzType="default" (click)="cancel()">取消</button>
+</div>

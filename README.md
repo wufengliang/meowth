@@ -16,7 +16,7 @@
 
 ### 技术栈
 
-- nodejs + koa2 + typescript + mongoodb
+- nodejs + koa2 + typescript + mongoodb + apidoc(文档生成工具)
 
 ### 状态码
 
