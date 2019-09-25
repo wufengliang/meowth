@@ -1,0 +1,46 @@
+<form nz-form [formGroup]="validateForm">
+  <nz-form-item>
+    <nz-form-label nzSpan="4" nzRequired>系统名称</nz-form-label>
+    <nz-form-control nzSpan="20" nzErrorTip="请输入系统名称">
+      <input nz-input formControlName="name" placeholder="请输入系统名称" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="4" nzRequired>系统编号</nz-form-label>
+    <nz-form-control nzSpan="20" nzErrorTip="请输入系统编号">
+      <input
+        nz-input
+        formControlName="systemCode"
+        placeholder="请输入系统编号"
+      />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="4" nzRequired>系统类型</nz-form-label>
+    <nz-form-control nzSpan="20" nzErrorTip="请选择系统类型">
+      <nz-select
+        formControlName="systemType"
+        nzPlaceHolder="请选择系统类型"
+        nzAllowClear
+      >
+        <nz-option [nzLabel]="'WEB'" [nzValue]="'WEB'"> </nz-option>
+        <nz-option [nzLabel]="'APP'" [nzValue]="'APP'"> </nz-option>
+        <nz-option [nzLabel]="'NODEJS'" [nzValue]="'NODEJS'"> </nz-option>
+        <nz-option [nzLabel]="'小程序'" [nzValue]="'小程序'"> </nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+
+<div class="modal-footer">
+  <button
+    nz-button
+    nzType="primary"
+    class="margin-right-10"
+    [nzLoading]="loading"
+    (click)="isOk()"
+  >
+    确定
+  </button>
+  <button nz-button nzType="default" (click)="cancel()">取消</button>
+</div>

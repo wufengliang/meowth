@@ -4,3 +4,9 @@
 .yarn-lock.json
 
 /dist
+/src/config/robot.ts
+/server/node_modules
+/client/node_modules
+
+/server/src/config/robot.ts
+/doc

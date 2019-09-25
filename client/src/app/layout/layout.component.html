@@ -1,0 +1,72 @@
+<nz-layout>
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+    <div class="logo text-align-center">
+      <b>{{ isCollapsed ? "智" : "智能化DevOps辅助系统" }}</b>
+    </div>
+    <ul
+      nz-menu
+      nzTheme="dark"
+      nzMode="inline"
+      [nzInlineCollapsed]="isCollapsed"
+    >
+      <li nz-submenu nzTitle="维护列表" nzIcon="appstore">
+        <ul>
+          <li
+            nz-menu-item
+            [routerLink]="'/system/systemList'"
+            [nzSelected]="routerUrl === '/system/systemList'"
+          >
+            系统信息维护
+          </li>
+          <li
+            nz-menu-item
+            [routerLink]="'/cicd-variables/cicdList'"
+            [nzSelected]="routerUrl === '/cicd-variables/cicdList'"
+          >
+            CI/CD变量维护
+          </li>
+          <li
+            nz-menu-item
+            [routerLink]="'/system-develop/developList'"
+            [nzSelected]="routerUrl === '/system-develop/developList'"
+          >
+            开发人员
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div nz-row nzType="flex" nzAlign="middle" nzJustify="space-between">
+        <i
+          class="trigger"
+          nz-icon
+          [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+          (click)="isCollapsed = !isCollapsed"
+        ></i>
+        <div class="padding-right-20">
+          <nz-avatar
+            [nzText]="data?.name"
+            nz-dropdown
+            [nzDropdownMenu]="menu"
+            [nzPlacement]="'bottomRight'"
+          >
+            <nz-dropdown-menu #menu="nzDropdownMenu">
+              <ul nz-menu>
+                <li nz-menu-item (click)="loginout()">
+                  <i nz-icon nzType="logout" nzTheme="outline"></i><b>退出</b>
+                </li>
+              </ul>
+            </nz-dropdown-menu></nz-avatar
+          >
+        </div>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

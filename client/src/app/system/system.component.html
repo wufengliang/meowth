@@ -1,0 +1,45 @@
+<div class="margin-bottom-10">
+  <button
+    class="margin-right-5"
+    nz-button
+    nzType="default"
+    (click)="operate('add')"
+  >
+    添加系统
+  </button>
+  <button
+    class="margin-right-5"
+    [disabled]="selections.length !== 1"
+    nz-button
+    nzType="primary"
+    (click)="operate('edit')"
+  >
+    修改系统
+  </button>
+  <button
+    [disabled]="selections.length === 0"
+    nz-button
+    nzType="primary"
+    class="margin-right-5"
+    (click)="operate('delete')"
+  >
+    删除系统
+  </button>
+
+  <ng-container *ngIf="selections.length > 0">
+    已选 {{ selections.length }} 项
+    <a (click)="selections = []" style="margin-right:8px">取消</a>
+  </ng-container>
+</div>
+<p-table
+  #table
+  [data]="tableData"
+  [(columns)]="columns"
+  [showCheckbox]="true"
+  [(selections)]="selections"
+  [scroll]="{ y: '300px' }"
+  [loading]="tableLoading"
+  [fixedPagination]="true"
+  (load)="load($event)"
+>
+</p-table>

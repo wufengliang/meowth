@@ -1,0 +1,14 @@
+{
+    "name": "智能化DevOps辅助系统", 
+    "version": "1.0.0", 
+    "description": "智能化DevOps辅助系统API文档",
+    "title": "智能化DevOps辅助系统", 
+    "url" : "http://localhost:8888", 
+    "sampleUrl": "http://localhost:8888",
+    "forceLanguage":"zh-cn",
+    "template": {
+      "withCompare": true,
+      "withGenerator": true
+    }
+  
+  }

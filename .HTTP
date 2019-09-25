@@ -1,27 +1,35 @@
 ### 获取所有系统
 GET http://localhost:8888/api/system/all
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
 
 ### 添加系统
 POST http://localhost:8888/api/system/add
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
 
 {
-    "name":"IPS系统",
-    "systemCode":"ips-web"
+    "name":"SCM系统",
+    "systemCode":"scm-web",
+    "developer":[{"_id":"5d85d142afb58322cc813334"},{"_id":"5d85d6ab81fbba3a44baf45d"}],
+    "leader":[
+        {"_id":"5d85d142afb58322cc813334"}
+    ]
 }
 
 ### 删除系统
 POST http://localhost:8888/api/system/delete
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
 
 {
-    "ids":["5d65ef53f4844b59f41a117b"]
+    "ids":["5d89bb8b64ca5c1468f2ded5"]
 }
 
 ### 编辑系统
 POST http://localhost:8888/api/system/edit
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
 
 {
     "id":"5d65f327a23f0d5b5c47f916",
@@ -65,45 +73,6 @@ Content-Type: application/json
     "port":"1111"
 }
 
-### 查询系统开发维护列表
-GET http://localhost:8888/api/system-develop/all
-Content-Type: application/json
-
-### 添加系统开发维护人员
-POST http://localhost:8888/api/system-develop/add
-Content-Type: application/json
-
-{
-    "leader":"张三",
-    "frontEnd":"李四",
-    "backEnd":"王五",
-    "testEngineer":["阮小七"],
-    "productManager":["二狗子"],
-    "system":"5d65f327a23f0d5b5c47f916"
-}
-
-### 删除系统开发维护人员
-POST http://localhost:8888/api/system-develop/delete
-Content-Type: application/json
-
-{
-    "ids":["5d677943a5232461dce7fb88","5d6779e7c4c9391b60b1baa4","5d677a0cc4c9391b60b1baa5"]
-}
-
-### 编辑系统开发维护人员
-POST http://localhost:8888/api/system-develop/edit
-Content-Type: application/json
-
-{
-    "id":"5d677943a5232461dce7fb88",
-    "leader":"张三1",
-    "frontEnd":"李四2",
-    "backEnd":"王五3",
-    "testEngineer":["阮小七4"],
-    "productManager":["二狗子5"],
-    "system":"5d65f327a23f0d5b5c47f916"
-}
-
 ### 注册账号
 POST http://localhost:8888/api/user/register
 Content-Type: application/json
@@ -112,10 +81,9 @@ Content-Type: application/json
     "name":"吴风亮",
     "username":"wufengliang",
     "password":"123456",
-    "role":"前端",
-    "telPhone":"18520780223",
-    "contactQQ":"44823912",
-    "isOpen":true
+    "role":"frontEnd",
+    "mobile":"13535353535",
+    "contactQQ":"10086"
 }
 
 ### 登录账号
@@ -127,7 +95,33 @@ Content-Type: application/json
     "password":"123456"
 }
 
-### 获取登录账号信息
-POST http://localhost:8888/api/user/person
+### 获取用户列表
+GET http://localhost:8888/api/user/all
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY4Mjc4NzcxLCJleHAiOjE1NjgyODU5NzF9.k8KjAWWHakJkxvda0hB1PTo2fmRzNeBx0AoOSyHyUAA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
+
+### 添加用户列表
+POST http://localhost:8888/api/user/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
+
+{
+    "name":"张三",
+    "username":"zhangsan",
+    "password":"123456",
+    "role":"backEnd",
+    "mobile":"13111111111",
+    "contactQQ":"112233"
+}
+
+### 获取登录账号信息
+POST http://localhost:8888/api/user/me
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
+
+
+### 获取某个账号信息
+POST http://localhost:8888/api/user/single/wufengliang
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
+
