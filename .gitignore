@@ -10,3 +10,5 @@
 
 /server/src/config/robot.ts
 /doc
+/server/package-lock.json
+/client/package-lock.json
