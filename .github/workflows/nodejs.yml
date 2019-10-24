@@ -22,7 +22,5 @@ jobs:
           node -v
           npm -v
           cd client
-          npm install
-          node ./node_modules/@angular/cli/bin/ng build --outputPath=../public --base-href=/meowth
-          node ./node_modules/@angular/cli/bin/ng -version
+          npm run build:client
           npm -v
