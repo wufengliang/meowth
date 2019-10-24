@@ -1,4 +1,4 @@
-name: Meowth Ci
+name: Node CI
 on: 
   push:
     paths: 
