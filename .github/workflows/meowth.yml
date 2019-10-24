@@ -1,0 +1,36 @@
+name: Meowth Ci
+on: 
+  push:
+    paths: 
+      - client/src/*
+    branches: 
+      - master
+
+jobs:
+  jobs1:
+    name: meowth-install
+    runs-on: ubuntu-latest
+    steps:
+      - name: get codes
+        uses: actions/checkout@master
+        
+      - name:	install nodejs
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+          
+      - name: build
+        run: |
+          cd client
+          npm run build
+
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v2.3.1
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./public
+        
+          
+        
+       
