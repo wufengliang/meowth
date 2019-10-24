@@ -49,6 +49,16 @@ const systemShema = new Schema({
     leader: {
         //  负责人 (前端、后端)
         type: [{ type: Schema.Types.ObjectId, ref: 'user' }]
+    },
+    isOpenAutoPipeline: {
+        //  是否开启pipelines
+        type: Boolean,
+        default: false,
+    },
+    autoPipelineTime: {
+        //  自动执行任务时间（分）
+        type: Number,
+        default: null
     }
 }, {
     versionKey: false,
