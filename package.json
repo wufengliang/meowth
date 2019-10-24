@@ -2,38 +2,25 @@
   "name": "meowth",
   "version": "1.0.0",
   "description": "智能化DevOps辅助系统",
-  "main": "app.js",
-  "dependencies": {
-    "koa": "^2.8.1",
-    "koa-bodyparser": "^4.2.1",
-    "koa-json-error": "^3.1.2",
-    "koa-router": "^7.4.0",
-    "mongoose": "^5.6.11"
-  },
-  "devDependencies": {
-    "@types/koa": "^2.0.49",
-    "@types/koa-bodyparser": "^4.3.0",
-    "@types/koa-json-error": "^3.1.2",
-    "@types/koa-router": "^7.0.42",
-    "@types/mongoose": "^5.5.13",
-    "cross-env": "^5.2.0",
-    "nodemon": "^1.19.1",
-    "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
-  },
   "scripts": {
-    "start": "cross-env NODE_ENV=development nodemon --watch 'src/***/*' -e ts --exec 'ts-node' ./src/app.ts",
-    "prod": "cross-env NODE_ENV=production nodemon --watch 'src/***/*' -e ts --exec 'ts-node' ./src/app.ts",
-    "build": "tsc && node dist/app.js"
+    "client": "cd client && npm run start",
+    "build:client": "cd client && npm run build",
+    "server": "cd server && npm run start",
+    "server:build": "cd server && npm run build",
+    "doc": "apidoc -i server/src/controller -o doc/apidoc"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wufengliang/meowth.git"
   },
-  "author": "fex@1ziton.com",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/wufengliang/meowth/issues"
   },
-  "homepage": "https://github.com/wufengliang/meowth#readme"
+  "homepage": "https://github.com/wufengliang/meowth#readme",
+  "dependencies": {
+    "apidoc": "^0.17.7"
+  }
 }

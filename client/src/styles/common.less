@@ -1,0 +1,34 @@
+@numbers: 0, 2, 3, 4, 5, 7, 8, 10, 12, 15, 16, 20, 22, 24, 25, 30, 36, 40, 45,
+  50, 60, 66, 70;
+@0px: 0px;
+
+.loop(@i) when (@i<length(@numbers)) {
+  @val: extract(@numbers, @i);
+  .margin-left-@{val} {
+    margin-left: @val+ @0px;
+  }
+  .margin-right-@{val} {
+    margin-right: @val+ @0px;
+  }
+  .margin-top-@{val} {
+    margin-top: @val+ @0px;
+  }
+  .margin-bottom-@{val} {
+    margin-bottom: @val+ @0px;
+  }
+  .padding-left-@{val} {
+    padding-left: @val+ @0px;
+  }
+  .padding-right-@{val} {
+    padding-right: @val+ @0px;
+  }
+  .padding-top-@{val} {
+    padding-top: @val+ @0px;
+  }
+  .padding-bottom-@{val} {
+    padding-bottom: @val+ @0px;
+  }
+  .loop(@i+1);
+}
+.loop(1);
+

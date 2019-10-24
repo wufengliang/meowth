@@ -1,6 +1,16 @@
 ### 此为注释 忽略文件
 /node_modules
 .package-lock.json
-.yarn-lock.json
+.yarn-lock
 
 /dist
+/src/config/robot.ts
+/server/node_modules
+/client/node_modules
+
+/server/src/config/robot.ts
+/doc
+/server/package-lock.json
+/server/yarn.lock
+/client/package-lock.json
+/client/yarn.lock

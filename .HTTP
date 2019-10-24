@@ -1,27 +1,35 @@
 ### 获取所有系统
-GET http://localhost:8888/system/all
+GET http://localhost:8888/api/system/all
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
 
 ### 添加系统
-POST http://localhost:8888/system/add
+POST http://localhost:8888/api/system/add
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
 
 {
-    "name":"IPS系统",
-    "systemCode":"ips-web"
+    "name":"SCM系统",
+    "systemCode":"scm-web",
+    "developer":[{"_id":"5d85d142afb58322cc813334"},{"_id":"5d85d6ab81fbba3a44baf45d"}],
+    "leader":[
+        {"_id":"5d85d142afb58322cc813334"}
+    ]
 }
 
 ### 删除系统
-POST http://localhost:8888/system/delete
+POST http://localhost:8888/api/system/delete
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
 
 {
-    "ids":["5d65ef53f4844b59f41a117b"]
+    "ids":["5d89bb8b64ca5c1468f2ded5"]
 }
 
 ### 编辑系统
-POST http://localhost:8888/system/edit
+POST http://localhost:8888/api/system/edit
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
 
 {
     "id":"5d65f327a23f0d5b5c47f916",
@@ -30,12 +38,12 @@ Content-Type: application/json
 }
 
 ### 获取所有CICD路由
-GET http://localhost:8888/cicd/all
+GET http://localhost:8888/api/cicd/all
 Content-Type: application/json
 
 ### 添加CICD路由
 
-POST http://localhost:8888/cicd/add
+POST http://localhost:8888/api/cicd/add
 Content-Type: application/json
 
 {
@@ -48,7 +56,7 @@ Content-Type: application/json
 
 
 ### 删除CICD路由
-POST http://localhost:8888/cicd/delete
+POST http://localhost:8888/api/cicd/delete
 Content-Type: application/json
 
 {
@@ -56,7 +64,7 @@ Content-Type: application/json
 }
 
 ### 编辑CICD路由
-POST http://localhost:8888/cicd/edit
+POST http://localhost:8888/api/cicd/edit
 Content-Type: application/json
 
 {
@@ -64,3 +72,56 @@ Content-Type: application/json
     "environment":"test01",
     "port":"1111"
 }
+
+### 注册账号
+POST http://localhost:8888/api/user/register
+Content-Type: application/json
+
+{
+    "name":"吴风亮",
+    "username":"wufengliang",
+    "password":"123456",
+    "role":"frontEnd",
+    "mobile":"13535353535",
+    "contactQQ":"10086"
+}
+
+### 登录账号
+POST http://localhost:8888/api/user/login
+Content-Type: application/json
+
+{
+    "username":"wufengliang",
+    "password":"123456"
+}
+
+### 获取用户列表
+GET http://localhost:8888/api/user/all
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
+
+### 添加用户列表
+POST http://localhost:8888/api/user/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
+
+{
+    "name":"张三",
+    "username":"zhangsan",
+    "password":"123456",
+    "role":"backEnd",
+    "mobile":"13111111111",
+    "contactQQ":"112233"
+}
+
+### 获取登录账号信息
+POST http://localhost:8888/api/user/me
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
+
+
+### 获取某个账号信息
+POST http://localhost:8888/api/user/single/wufengliang
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ind1ZmVuZ2xpYW5nIiwiaWF0IjoxNTY5MzA0OTY2LCJleHAiOjE1NjkzMTIxNjZ9.HXbPm_ggEIMevSOpLK2Ug7NgAekaQK-h2e6_N3El9t0
+
