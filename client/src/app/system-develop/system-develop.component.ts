@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PTableColumn, PTableData, PTableRow, PTablePage } from '@pixelmon/pikachu/table';
+import { TableColumn, TableData, TableRow, TablePage } from '@pixelmon/pikachu/table';
 import { SystemDevelopService } from './system-develop.service';
 import { NzModalService, NzModalRef, NzMessageService } from 'ng-zorro-antd';
 import { AddSystemDevelopComponent } from './add-system-develop/add-system-develop.component';
@@ -11,15 +11,15 @@ import { AddSystemDevelopComponent } from './add-system-develop/add-system-devel
 })
 export class SystemDevelopComponent implements OnInit {
 
-  tableData: PTableData = {
+  tableData: TableData = {
     data: [],
     totalSize: 0,
   };
   queryParams = {};
 
   tableLoading = false;
-  selections: PTableRow[] = [];
-  columns: PTableColumn[] = [
+  selections: TableRow[] = [];
+  columns: TableColumn[] = [
     {
       title: '姓名',
       field: 'name',
@@ -66,7 +66,7 @@ export class SystemDevelopComponent implements OnInit {
 
   ngOnInit() { }
 
-  load(page: PTablePage = { page: 1, size: 10 }) {
+  load(page: TablePage = { page: 1, size: 10 }) {
     this.selections = [];
     this.tableLoading = true;
     this.service.getAllList({}).subscribe(

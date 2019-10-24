@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PTableColumn, PTableData, PTableRow, PTablePage } from '@pixelmon/pikachu/table';
+import { TableColumn, TableData, TableRow, TablePage } from '@pixelmon/pikachu/table';
 import { CICDVaribalesService } from './cicd-variables.service';
 import { NzModalService, NzModalRef, NzMessageService } from 'ng-zorro-antd';
 import { AddOrEditCicdvariablesComponent } from './add-or-edit-cicdvariables/add-or-edit-cicdvariables.component';
@@ -11,15 +11,15 @@ import { AddOrEditCicdvariablesComponent } from './add-or-edit-cicdvariables/add
 })
 export class CicdVariablesComponent implements OnInit {
 
-  tableData: PTableData = {
+  tableData: TableData = {
     data: [],
     totalSize: 0,
   };
   queryParams = {};
 
   tableLoading = false;
-  selections: PTableRow[] = [];
-  columns: PTableColumn[] = [
+  selections: TableRow[] = [];
+  columns: TableColumn[] = [
     {
       title: '环境',
       field: 'environment',
@@ -46,7 +46,7 @@ export class CicdVariablesComponent implements OnInit {
 
   ngOnInit() { }
 
-  load(page: PTablePage = { page: 1, size: 10 }) {
+  load(page: TablePage = { page: 1, size: 10 }) {
     this.selections = [];
     this.tableLoading = true;
 
