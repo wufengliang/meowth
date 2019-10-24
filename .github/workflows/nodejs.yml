@@ -21,8 +21,9 @@ jobs:
         run: |
           node -v
           npm -v
+          cd client
           npm install
-          node ./client/node_modules/@angular/cli/bin/ng build --outputPath=public --base-href=/meowth
+          npm run build
           ng -version
 
       - name: deploy
