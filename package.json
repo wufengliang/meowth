@@ -4,7 +4,7 @@
   "description": "智能化DevOps辅助系统",
   "scripts": {
     "client": "cd client && npm run start",
-    "build:client": "cd client && npm run aot",
+    "build:client": "cd client && npm run build",
     "server": "cd server && npm run start",
     "server:build": "cd server && npm run build",
     "doc": "apidoc -i server/src/controller -o doc/apidoc"
