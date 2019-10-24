@@ -25,6 +25,7 @@ jobs:
           npm install
           node ./node_modules/@angular/cli/bin/ng build --outputPath=../public --base-href=/meowth
           node ./node_modules/@angular/cli/bin/ng -version
+          npm -v
       - name: deploy
         uses: peaceiris/actions-gh-pages@v2.3.1
         env:
