@@ -1,29 +1,16 @@
-name: Node CI
-
-on:
-  pull_request:
-    branches: 
-      - master
+name: Meowth Ci
+on: 
   push:
+    paths: 
+      - client/src/*
     branches: 
       - master
 
 jobs:
-  build:
+  jobs1:
+    name: meowth-install
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [8.x, 10.x, 12.x]
-
     steps:
-    - uses: actions/checkout@master
-    - name: Meowth - Client
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: build client
-      run: |
-        cd client
-        npm run build
-      env:
-        CI: true
+      - name: output
+        run: echo node -v
+    
