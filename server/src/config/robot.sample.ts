@@ -10,4 +10,5 @@ export default {
     groupId2: 'xxxx', //  DevOps消息通知
     access_token: 'xxxx',
     auto_escape: false,
+    private_token: 'xxx'
 }

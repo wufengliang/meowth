@@ -71,7 +71,7 @@ export default class CiCdVariableController {
      */
     async addCicd(ctx: { [key: string]: any }) {
         const { code, type, environment, port, ip, path } = ctx.request.body,
-            data = await CiCdVariableModel.create({ code, type, environment, port, ip, path });
+            data = await CiCdVariableModel.create({ code, type, environment, port, ip, path, creator: ctx.session.username });
         ctx.body = {
             code: 200,
             data,
@@ -150,7 +150,7 @@ export default class CiCdVariableController {
                 message: '当前参数异常'
             }
         } else {
-            const result = await CiCdVariableModel.updateOne({ _id: id }, { environment, port, ip, path });
+            const result = await CiCdVariableModel.updateOne({ _id: id }, { environment, port, ip, path, modifier: ctx.session.username });
             ctx.body = {
                 code: 200,
                 message: '更新成功'
