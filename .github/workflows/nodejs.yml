@@ -45,4 +45,4 @@ jobs:
           cd ./dist
           git push --set-upstream -force --quiet "https://${ACCESS_TOKEN}@github.com/meowth.git" master:gh-pages
         env:
-          ACTIONS_DEPLOY_KEY:${{secrets.ACCESS_TOKEN}}
+          ACCESS_TOKEN:${{secrets.ACCESS_TOKEN}}
