@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "智能化DevOps辅助系统",
   "scripts": {
-    "install:client":"cd client && npm install",
+    "install:client":"node script/install.client --install",
     "start:client": "cd client && npm run start",
-    "build:client": "cd client && npm run build",
-    "install:server":"cd server && npm install",
+    "build:client": "node script/install.client --build",
+    "install:server": "cd server && npm install",
     "start:server": "cd server && npm run start",
     "server:build": "cd server && npm run build",
     "doc": "apidoc -i server/src/controller -o doc/apidoc"
@@ -17,7 +17,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC", 
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/wufengliang/meowth/issues"
   },
