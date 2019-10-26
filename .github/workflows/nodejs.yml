@@ -5,44 +5,45 @@ on:
       - master
 
 jobs:
-  jobs1:
-    name: meowth-install
+  job1:
+    name: install basic
     runs-on: ubuntu-latest
     steps:
-      - name: get codes
+      - name: Get Codes
         uses: actions/checkout@master
-
-      - name: install nodejs
+      
+      - name: Install Nodejs
         uses: actions/setup-node@v1
         with:
           node-version: 10.x
     
-      - name: install dependencies
+  job2:
+    name: install dependencies
+    runs-on: ubuntu-latest
+    needs: [job1]
+    steps:
+      - name: Install Client Dependencies
         run: |
-          node -v
-          npm -v
-          cd client && npm install
-          node ./node_modules/@angular/cli/bin/ng build --outputPath=../dist --base-href=/meowth
-          node ./node_modules/@angular/cli/bin/ng -version
-          
+          cd client
+          npm install
+  
+  job3:
+    name: build project
+    runs-on: ubuntu-latest
+    needs: [job2]
+    steps:
+      - name: Build The Project
+        run: |
+          node ./client/node_modules/@angular/cli/bin/ng build --outputPath=./dist --base-href=/meowth
+        
+  job4:
+    name: meowth-install
+    runs-on: ubuntu-latest
+    needs: [job3]
+    steps:
       - name: deploy
         uses: peaceiris/actions-gh-pages@v2.3.1
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./public
-
-      - name: git push
-        run: |
-          cd ./dist
-          git add .
-          git config user.email "44823912@qq.com"
-          git config.user.name "wufengliang"
-          git commit -m 'git push something'
-          
-      - name: github page
-        run: | 
-          cd ./dist
-          git push --set-upstream -force --quiet "https://${ACCESS_TOKEN}@github.com/meowth.git" master:gh-pages
-        env:
-          ACCESS_TOKEN:${{secrets.ACCESS_TOKEN}}
