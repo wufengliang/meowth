@@ -22,13 +22,13 @@ jobs:
           node -v
           npm -v
           cd client && npm install
-          node ./node_modules/@angular/cli/bin/ng build --outputPath=./public --base-href=/meowth
+          node ./node_modules/@angular/cli/bin/ng build --outputPath=../dist --base-href=/meowth
           node ./node_modules/@angular/cli/bin/ng -version
           
       - name: deploy
         uses: peaceiris/actions-gh-pages@v2.3.1
         env:
-          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACCESS_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./public
 
@@ -43,6 +43,6 @@ jobs:
       - name: github page
         run: | 
           cd ./dist
-          git push --set-upstream -force --quiet "https://${ACCESS_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" master:gh-pages
+          git push --set-upstream -force --quiet "https://${ACCESS_TOKEN}@github.com/meowth.git" master:gh-pages
         env:
-          ACTIONS_DEPLOY_KEY:${{secrets.ACTIONS_DEPLOY_KEY}}
+          ACTIONS_DEPLOY_KEY:${{secrets.ACCESS_TOKEN}}
