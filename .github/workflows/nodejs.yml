@@ -24,8 +24,7 @@ jobs:
     steps:
       - name: Install Client Dependencies
         run: |
-          cd client/
-          npm install
+          cd client && npm install
   
   job3:
     name: build project
