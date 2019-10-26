@@ -16,8 +16,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 10.x
-
-      - name: build
+    
+      - name: install dependencies
         run: |
           node -v
           npm -v
@@ -31,3 +31,18 @@ jobs:
           ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./public
+
+      - name: git push
+        run: |
+          cd ./dist
+          git add .
+          git config user.email "44823912@qq.com"
+          git config.user.name "wufengliang"
+          git commit -m 'git push something'
+          
+      - name: github page
+        run: | 
+          cd ./dist
+          git push --set-upstream -force --quiet "https://${ACCESS_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" master:gh-pages
+        env:
+          ACTIONS_DEPLOY_KEY:${{secrets.ACTIONS_DEPLOY_KEY}}
