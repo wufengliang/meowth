@@ -37,7 +37,7 @@ jobs:
           node ./client/node_modules/@angular/cli/bin/ng build --outputPath=./dist --base-href=/meowth
         
   job4:
-    name: meowth-install
+    name: github page
     runs-on: ubuntu-latest
     needs: [job3]
     steps:
