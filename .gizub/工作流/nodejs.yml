@@ -24,8 +24,9 @@ jobs:
     steps:
       - name: Install Client Dependencies
         run: |
+          npm -v
           npm run install:client
-  
+          
   job3:
     name: build project
     runs-on: ubuntu-latest
