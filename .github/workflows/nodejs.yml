@@ -17,14 +17,16 @@ jobs:
         with:
           node-version: 10.x
     
-      - name: install and build
+      - name: install dependencies
         run: |
           node -v
           npm -v
-          cd client
-          npm install
-          node ./node_modules/@angular/cli/bin/ng build --outputPath=./dist --base-href=/meowth
-          node ./node_modules/@angular/cli/bin/ng -version
+          cd client && npm install
+          
+      - name: build project
+        run: |
+          node ./client/node_modules/@angular/cli/bin/ng build --outputPath=./dist --base-href=/meowth
+          node ./client/node_modules/@angular/cli/bin/ng -version
       - name: deploy
         uses: peaceiris/actions-gh-pages@v2.3.1
         env:
