@@ -34,7 +34,7 @@ jobs:
     steps:
       - name: Build The Project
         run: |
-          node ./client/node_modules/@angular/cli/bin/ng build --outputPath=./dist --base-href=/meowth
+          npm run build:client
         
   job4:
     name: github page
