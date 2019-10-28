@@ -1,3 +1,4 @@
+console.log(1,'build_install.client');
 const { spawn, exec } = require('child_process');
 const path = require('path');
 const where = path.join(__dirname, '../client');
