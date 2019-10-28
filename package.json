@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "智能化DevOps辅助系统",
   "scripts": {
-    "install:client":"node script/install.client --install",
+    "install:client":"node script/build_install.client --install",
     "start:client": "cd client && npm run start",
-    "build:client": "node script/install.client --build",
+    "build:client": "node script/build_install.client --build",
     "install:server": "cd server && npm install",
     "start:server": "cd server && npm run start",
     "server:build": "cd server && npm run build",
