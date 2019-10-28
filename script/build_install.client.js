@@ -3,7 +3,7 @@ const path = require('path');
 const where = path.join(__dirname, '../client');
 
 const value = process.argv[2].substr(2);
-
+console.log(where);
 if (value === 'build') {
     const ls = spawn(`${process.platform === 'win32' ? 'npm.cmd' : 'npm'}`, ['run', 'build'], { cwd: where });
 
