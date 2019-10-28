@@ -4,7 +4,6 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "install":"npm install",
     "build": "node ./node_modules/@angular/cli/bin/ng build --outputPath=../public --base-href=/meowth",
     "test": "ng test",
     "lint": "ng lint",
