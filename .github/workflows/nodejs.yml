@@ -16,6 +16,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 10.x
+          
     
   job2:
     name: install dependencies
@@ -25,6 +26,7 @@ jobs:
       - name: Install Client Dependencies
         run: |
           npm -v
+          node 
           npm run install:client
           
   job3:
